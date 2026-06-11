@@ -154,6 +154,118 @@ This project demonstrates:
 - pytest
 - pytest-cov (optional, for coverage reports)
 
+---
+
+## 🔗 GitHub ↔ Jira Integration
+
+This repository is connected to the Jira project at: https://tddcalculator.atlassian.net/jira/software/projects/KAN
+
+### Smart Commits & Issue Linking
+
+To link your GitHub commits and PRs to Jira issues, use the following format:
+
+#### Commit Message Format
+```bash
+git commit -m "KAN-1 Implement basic add operation"
+git commit -m "KAN-2 #done Completed green phase tests"
+git commit -m "KAN-3 #comment Added comprehensive error handling"
+```
+
+#### Commit Message Transitions (Smart Commits)
+- `#done` - Mark issue as Done/Resolved
+- `#comment` - Add a comment to the issue
+- `#inprogress` - Move issue to In Progress
+- `#review` - Move issue to Review
+
+#### Branch Naming Convention
+```bash
+git checkout -b feature/KAN-1-add-operation
+git checkout -b bugfix/KAN-5-fix-division-error
+git checkout -b refactor/KAN-8-improve-memory-management
+```
+
+#### Pull Request Title Format
+```
+KAN-2: Implement GREEN phase minimal implementation
+
+- Add basic calculator operations
+- Write comprehensive tests
+- Fix: #KAN-5
+```
+
+### What Gets Synced to Jira
+
+When you push commits with Jira issue keys:
+- 📝 **Commits** - Git commits linked to the issue
+- 🔀 **Pull Requests** - Associated pull requests
+- 🌿 **Branches** - Feature/bug branches
+- 📊 **Development Panel** - Complete development activity
+
+### Example Workflow
+
+1. **Create a branch** from Jira or GitHub with issue key:
+   ```bash
+   git checkout -b feature/KAN-1-basic-operations
+   ```
+
+2. **Make commits** referencing the Jira key:
+   ```bash
+   git commit -m "KAN-1 Implement add and subtract functions"
+   git commit -m "KAN-1 Add comprehensive unit tests"
+   ```
+
+3. **Create a Pull Request** with the issue key:
+   ```
+   Title: KAN-1 Implement Basic Operations
+   Description: Implements add and subtract functions for the calculator
+   ```
+
+4. **Merge the PR** - Jira will automatically update the issue with development activity
+
+---
+
+## 🚀 Development Workflow
+
+### Phase 1: RED (Tests First)
+```bash
+# Create branch
+git checkout -b feature/KAN-1-red-phase-tests
+
+# Reference in commit
+git commit -m "KAN-1 Write failing tests for basic operations"
+
+# Push and create PR
+git push origin feature/KAN-1-red-phase-tests
+```
+
+### Phase 2: GREEN (Minimal Implementation)
+```bash
+# Create branch
+git checkout -b feature/KAN-2-green-phase-implementation
+
+# Reference in commit
+git commit -m "KAN-2 Implement minimal calculator code to pass tests"
+
+# When done
+git commit -m "KAN-2 #done All tests passing"
+```
+
+### Phase 3: REFACTOR (Clean Code)
+```bash
+# Create branch
+git checkout -b feature/KAN-3-refactor-phase
+
+# Reference in commit
+git commit -m "KAN-3 Refactor calculator with better architecture"
+git commit -m "KAN-3 Add data classes and custom exceptions"
+git commit -m "KAN-3 #done Refactor complete"
+```
+
+---
+
 ## Author
 
 Created with TDD methodology for educational purposes.
+
+**Repository**: https://github.com/codedbyroy/python-tdd-calculator  
+**Jira Project**: https://tddcalculator.atlassian.net/jira/software/projects/KAN
